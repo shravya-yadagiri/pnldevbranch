@@ -1,0 +1,28 @@
+server:
+  contextPath: /eagle
+  port: 8099
+
+logging.level:
+    root: INFO
+    com.eagle: DEBUG
+    com.ib: DEBUG
+    
+eagle-workflow:
+  schedule: 0 45 15 ? * MON-FRI
+  eagleHomeDirectory: C:\Eagle\eagle_home  
+  rawDataDirectory: rawData
+  rawDataFileType: csv  
+  orderAckDirectory: positions
+  email:
+    smtpHost: smtp.gmail.com #SMTP Host
+    smtpPort: 587 #SMTP port
+    fromEmail: eagleworkflow@gmail.com
+    password: PReset0123
+    toEmail: shravya.yadagiri@prutech.com
+  accounts:
+    selected: true # false
+    inputFilePath: config\accounts.json
+  instrument:
+    selected: true # false - for fetching all instruments (it is not avilable in current version), true- for selected instruments which are in instruments.json file
+    inputFilePath: config\instruments.json
+  
