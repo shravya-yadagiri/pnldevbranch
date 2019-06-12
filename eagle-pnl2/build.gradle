@@ -1,0 +1,35 @@
+plugins {
+	id 'org.springframework.boot' version '2.1.4.RELEASE'
+	id 'java'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.eagle.pnl'
+version = '0.0.1'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+jar{
+    baseName = 'eaglePnL' 
+    version = '1.0'
+    manifest{
+             attributes 'Main-Class': 'com.eagle.pnl.EaglePnLApplication'
+            }
+    }
+       
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'	
+    compile("net.sf.supercsv:super-csv:2.4.0")
+    compile files('libs/twaclient.jar')
+    testCompile files('libs/twaclient.jar')
+    compile("org.springframework.boot:spring-boot-starter-batch")
+    compile("org.hsqldb:hsqldb")
+    compile('org.apache.commons:commons-lang3:3.4') // For the String utils mainly
+}
+
+
